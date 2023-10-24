@@ -92,8 +92,7 @@ KPP o-- IdCard
 KPP <-- Person
 @enduml
 ```
-
-
+![image](https://github.com/Yelqo17/cheat-sheets/blob/main/img/uml.png)
 
 Диаграмма последовательности
 ----------------------------
@@ -109,3 +108,62 @@ KPP <-- Person
 *   Найденное сообщение — сообщение без отправителя
 
 Последние два вида стрелок (взаимодействий) используются крайне редко. В основном они используются для демонстрации взаимодействия имеющихся объектов в данном прецеденте с внешними системами.
+
+Пример реализации диграммы последовательности. Процесс вызова лифта
+-------------------------------------------------------------------
+
+```
+@startuml
+participant user
+participant lift
+participant button
+
+
+user -> button: call
+activate button #FFFFFF
+
+button -> lift: call
+activate lift
+
+lift -> lift: down
+
+lift -> button: ready
+deactivate lift
+
+button -> user
+deactivate button
+@enduml
+```
+
+![image](https://github.com/Yelqo17/cheat-sheets/blob/main/img/uml_2.png)
+
+```
+@startuml
+participant user
+participant lift
+participant button
+
+user -> button: call
+activate button #FFFFFF
+
+button -> lift: call
+activate lift
+
+lift -> lift: down
+
+lift -> user: ready
+deactivate lift
+activate user
+
+user -> lift: go up
+deactivate user
+activate lift
+
+lift -> lift: up
+lift -> user: ready
+deactivate lift
+deactivate button
+@enduml
+```
+![image](https://github.com/Yelqo17/cheat-sheets/blob/main/img/uml_3.png)
+
