@@ -51,6 +51,50 @@
 
 Агрегация - ромбик не закрашеный, идет к агрегирующему классу. Пример: жесткий диск содержится в компьютере. Если компьютер сломается - жесткий диск останется. Композиция - стрелочка с закрашенным ромбиком идет в сторону агригирующего объекта. В композиции компонент ограничен сроком жизни агригирующего объекта.
 
+
+Пример реализации диграммы классов
+----------------------------------
+
+```
+@startuml
+
+class Person {
+    - fio : string
+    - photo : byte[]
+    - IdCard : IdCard
+}
+
+class Student {
+    - course : int
+    - group : String
+}
+
+class Professor {
+    - position : String
+}
+
+class IdCard {
+    - id : int
+    - toLife : Instant
+}
+
+class KPP {
+    - registryIdCards : List<IdCard>
+    + isValidIdCard(Person) : boolean
+}
+
+Person <|-- Student
+Person <|-- Professor
+Person *-- IdCard
+Person <|.. Professor
+
+KPP o-- IdCard
+KPP <-- Person
+@enduml
+```
+
+
+
 Диаграмма последовательности
 ----------------------------
 
