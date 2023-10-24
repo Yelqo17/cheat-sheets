@@ -94,6 +94,8 @@ KPP <-- Person
 ```
 ![image](https://github.com/Yelqo17/cheat-sheets/blob/main/img/uml.png)
 
+---
+
 Диаграмма последовательности
 ----------------------------
 
